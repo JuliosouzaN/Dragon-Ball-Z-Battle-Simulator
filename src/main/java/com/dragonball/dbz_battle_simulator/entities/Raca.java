@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -23,4 +25,7 @@ public class Raca {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private RacaEnum nome;
+
+    @OneToMany(mappedBy = "raca", cascade = CascadeType.ALL)
+    private List<Personagem> personagens;
 }
