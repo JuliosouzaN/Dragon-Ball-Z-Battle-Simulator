@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -27,4 +29,12 @@ public class Personagem {
 
     @Column(name = "nivel_poder", nullable = false)
     private Integer nivelPoder;
+
+    @ManyToMany
+    @JoinTable(
+            name = "personagem_transformacao",
+            joinColumns = @JoinColumn(name = "personagem_id"),
+            inverseJoinColumns = @JoinColumn(name = "transformacao_id")
+    )
+    private List<Transformacao> transformacoes;
 }

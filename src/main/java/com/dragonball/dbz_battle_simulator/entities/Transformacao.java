@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -24,6 +26,9 @@ public class Transformacao {
     private TransformacoesEnum nome;
 
     @ManyToOne
-    @JoinColumn(name = "raca_id",nullable = false)
+    @JoinColumn(name = "raca_id", nullable = false)
     private Raca raca;
+
+    @ManyToMany(mappedBy = "transformacoes")
+    private List<Personagem> personagens;
 }
