@@ -1,4 +1,4 @@
-package com.dragonball.dbz_battle_simulator.entities.enums;
+package com.dragonball.dbz_battle_simulator.entity.enums;
 
 public enum TransformacoesEnum {
     // Saiyajins

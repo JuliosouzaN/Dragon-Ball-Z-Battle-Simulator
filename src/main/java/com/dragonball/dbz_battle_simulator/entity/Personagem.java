@@ -1,4 +1,4 @@
-package com.dragonball.dbz_battle_simulator.entities;
+package com.dragonball.dbz_battle_simulator.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

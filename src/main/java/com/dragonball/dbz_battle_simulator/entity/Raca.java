@@ -1,6 +1,6 @@
-package com.dragonball.dbz_battle_simulator.entities;
+package com.dragonball.dbz_battle_simulator.entity;
 
-import com.dragonball.dbz_battle_simulator.entities.enums.TransformacoesEnum;
+import com.dragonball.dbz_battle_simulator.entity.enums.RacaEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,8 +14,8 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_transformacao")
-public class Transformacao {
+@Table(name = "tb_raca")
+public class Raca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,12 +23,11 @@ public class Transformacao {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private TransformacoesEnum nome;
+    private RacaEnum nome;
 
-    @ManyToOne
-    @JoinColumn(name = "raca_id", nullable = false)
-    private Raca raca;
-
-    @ManyToMany(mappedBy = "transformacoes")
+    @OneToMany(mappedBy = "raca", cascade = CascadeType.ALL)
     private List<Personagem> personagens;
+
+    @OneToMany(mappedBy = "raca")
+    private List<Transformacao> transformacoes;
 }
